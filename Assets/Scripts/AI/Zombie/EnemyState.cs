@@ -1,7 +1,7 @@
 
 public abstract class EnemyState
 {
-    private EnemyController enemy;
+    protected EnemyController enemy;
 
     public EnemyState(EnemyController enemy)
     {
