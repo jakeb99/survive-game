@@ -11,6 +11,7 @@ public class EnemyMoveToState : EnemyState
     public override void OnStateEnter()
     {
         Debug.Log("Entered EnemyMoveToTargetState.");
+        enemy.currentTarget = enemy.player;
         Debug.Log($"moving to {enemy.currentTarget.name}");
         enemy.agent.destination = enemy.currentTarget.transform.position;
         enemy.agent.isStopped = false;

@@ -15,6 +15,7 @@ public class EnemyAttackState : EnemyState
         if (attackAbility)
         {
             attackAbility.StartAttack(enemy.currentTarget);
+            enemy.rb.isKinematic = true;
         } else
         {
             Debug.Log("No AttackAbility found");
@@ -27,9 +28,8 @@ public class EnemyAttackState : EnemyState
         if (attackAbility)
         {
             attackAbility.StopAttack();
-        }
-        // cont tracking player
-        enemy.currentTarget = enemy.player;
+            enemy.rb.isKinematic = false;
+        }        
     }
 
     public override void OnStateUpdate()
@@ -37,6 +37,13 @@ public class EnemyAttackState : EnemyState
         if (!enemy.currentTarget)
         {
             enemy.ChangeState(new EnemyMoveToState(enemy));
+        } else
+        {
+            // prevent attacking player if out of range
+            if (enemy.currentTarget == enemy.player && Vector3.Distance(enemy.transform.position, enemy.player.transform.position) > enemy.attackRange)
+            {
+                enemy.ChangeState(new EnemyMoveToState(enemy));
+            }
         }
     }
 }

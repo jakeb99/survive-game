@@ -6,8 +6,9 @@ using Invector.vCharacterController;
 public class EnemyController : MonoBehaviour
 {
     private EnemyState currentState;
+    public Rigidbody rb {  get; private set; }
 
-    public List<GameObject> targets;
+    //public List<GameObject> targets;
     public GameObject currentTarget;
 
     public GameObject player;
@@ -17,13 +18,15 @@ public class EnemyController : MonoBehaviour
     public Transform enemyEye;
     public float breakableCheckDistance;        // distance to check for breakable object in path
     public float breakableCheckRadius = 0.4f;
+    public float attackRange;
     public LayerMask attackableLayerMask;
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        rb = GetComponent<Rigidbody>();
+
         //currentTarget = targets.Count > 0 ? targets[0] : null;
-       
         currentState = new EnemyMoveToState(this);
     }
 
@@ -51,8 +54,7 @@ public class EnemyController : MonoBehaviour
         Gizmos.DrawWireSphere(enemyEye.position + enemyEye.forward * breakableCheckDistance, breakableCheckRadius);
         Gizmos.DrawLine(enemyEye.position, enemyEye.position + enemyEye.forward * breakableCheckDistance);
 
-        //Gizmos.color = (Vector3.Distance(gameObject.transform.position, currentTarget.transform.position) <= attackDistance) ? Color.green : Color.red;
-        //Debug.Log($"dist gizmo: {Vector3.Distance(gameObject.transform.position, currentTarget.transform.position)}");
-        Gizmos.DrawLine(gameObject.transform.position, currentTarget.transform.position);
+        if (currentTarget != null)
+            Gizmos.DrawLine(gameObject.transform.position, currentTarget.transform.position);
     }
 }
