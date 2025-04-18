@@ -1,14 +1,11 @@
 using UnityEngine;
 using UnityEngine.AI;
-using System.Collections.Generic;
-using Invector.vCharacterController;
 
 public class EnemyController : MonoBehaviour
 {
     private EnemyState currentState;
     public Rigidbody rb {  get; private set; }
 
-    //public List<GameObject> targets;
     public GameObject currentTarget;
 
     public GameObject player;
@@ -26,9 +23,8 @@ public class EnemyController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
 
-        //currentTarget = targets.Count > 0 ? targets[0] : null;
         currentState = new EnemyMoveToState(this);
-    }
+    } 
 
     private void Start()
     {

@@ -12,13 +12,13 @@ NavMeshProjectSettings:
   - name: Jump
     cost: 2
   - name: Breakable - Weak
-    cost: 5
+    cost: 50
   - name: Breakable - Medium
-    cost: 25
-  - name: 
-    cost: 1
-  - name: 
-    cost: 1
+    cost: 150
+  - name: Breakable - Strong
+    cost: 250
+  - name: Barbedwire
+    cost: 20
   - name: 
     cost: 1
   - name: 
