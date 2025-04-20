@@ -5,13 +5,13 @@ public class BarbedWire : DestructableObject
     [SerializeField] float damageAmount;
     [SerializeField] float speedInBarbedWire;
     private EnemyController enemy;
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Enemy")
         {
             enemy = other.GetComponentInParent<EnemyController>();
             enemy.agent.speed = speedInBarbedWire;
-            
         }
     }
 

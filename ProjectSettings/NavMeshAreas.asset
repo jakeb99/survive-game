@@ -19,8 +19,8 @@ NavMeshProjectSettings:
     cost: 150
   - name: Barbedwire
     cost: 25
-  - name: 
-    cost: 1
+  - name: Turret
+    cost: -10
   - name: 
     cost: 1
   - name: 

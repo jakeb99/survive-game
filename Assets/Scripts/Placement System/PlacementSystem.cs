@@ -57,7 +57,7 @@ public class PlacementSystem : MonoBehaviour
     {
         if (!inPlacementMode || !validPlacementPos) return;
 
-        Instantiate(placeableObjectPrefab, currentPlacementPostition, Quaternion.identity);
+        Instantiate(placeableObjectPrefab, currentPlacementPostition, placeableObjectPrefab.transform.rotation);
         ExitPlacementMode();
     }
 
@@ -85,7 +85,7 @@ public class PlacementSystem : MonoBehaviour
         if (inPlacementMode) return;
 
         inPlacementMode = true;
-        previewObject = Instantiate(previewObjectPrefab, currentPlacementPostition, Quaternion.identity);
+        previewObject = Instantiate(previewObjectPrefab, currentPlacementPostition, previewObjectPrefab.transform.rotation);
 
     }     
     

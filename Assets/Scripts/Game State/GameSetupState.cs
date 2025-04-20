@@ -8,15 +8,19 @@ public class GameSetupState : GameState
 
     public override void OnStateEnter()
     {
+        Debug.Log("Entered GameSetupState");
         // show shop UI
+        gameManager.UIManager.ShowShopUI();
         // allow building / placing items
     }
 
     public override void OnStateExit()
     {
         // hide shop UI
+        gameManager.UIManager.HideShopUI();
         // turn off abiliy to place items
         // call NavMeshManager and bake the nav mesh surface
+        NavMeshManager.Instance.BakeNavMesh();
     }
 
     public override void OnStateUpdate()
