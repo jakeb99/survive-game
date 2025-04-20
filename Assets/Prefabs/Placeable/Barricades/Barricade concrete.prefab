@@ -82,6 +82,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1504112223404141667, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
+      propertyPath: itemCost
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -1504112223404141667, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
+      propertyPath: itemName
+      value: Concrete Barricade
+      objectReference: {fileID: 0}
+    - target: {fileID: -1504112223404141667, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
+      propertyPath: itemType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -1504112223404141667, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
+      propertyPath: itemHealth
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: -1504112223404141667, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
+      propertyPath: itemDescription
+      value: The concrete barricade offers the most durability but comes at a premium.
+      objectReference: {fileID: 0}
     - target: {fileID: 3568731738809253764, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -94,6 +114,10 @@ PrefabInstance:
       propertyPath: <maxHealth>k__BackingField
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 5543377087673411652, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
+      propertyPath: m_ApplyToChildren
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6501837296054789044, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -101,6 +125,18 @@ PrefabInstance:
     - target: {fileID: 7429624099821248226, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
       propertyPath: m_Area
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7429624099821248226, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
+      propertyPath: m_Size.y
+      value: 1.280369
+      objectReference: {fileID: 0}
+    - target: {fileID: 7429624099821248226, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7429624099821248226, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
+      propertyPath: m_Center.y
+      value: -0.21132162
       objectReference: {fileID: 0}
     - target: {fileID: 8976359006943427590, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
       propertyPath: m_LocalPosition.x

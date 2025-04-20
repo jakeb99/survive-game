@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3071456523613469698, guid: e5c01392225b14746a4ffaf9a3f025b7, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3253724610368674961, guid: e5c01392225b14746a4ffaf9a3f025b7, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -56,13 +60,45 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barricade concrete preview Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5391108644986208251, guid: e5c01392225b14746a4ffaf9a3f025b7, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7634431233542834272, guid: e5c01392225b14746a4ffaf9a3f025b7, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3658952539929510074, guid: e5c01392225b14746a4ffaf9a3f025b7, type: 3}
     - {fileID: 1960970955215481484, guid: e5c01392225b14746a4ffaf9a3f025b7, type: 3}
     - {fileID: 4356427705120602098, guid: e5c01392225b14746a4ffaf9a3f025b7, type: 3}
+    - {fileID: 1998325116825390123, guid: e5c01392225b14746a4ffaf9a3f025b7, type: 3}
     m_RemovedGameObjects:
     - {fileID: 838390171291946391, guid: e5c01392225b14746a4ffaf9a3f025b7, type: 3}
     - {fileID: 8914268631923673305, guid: e5c01392225b14746a4ffaf9a3f025b7, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5391108644986208251, guid: e5c01392225b14746a4ffaf9a3f025b7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1450417027895766404}
   m_SourcePrefab: {fileID: 100100000, guid: e5c01392225b14746a4ffaf9a3f025b7, type: 3}
+--- !u!1 &7966984375728747540 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5391108644986208251, guid: e5c01392225b14746a4ffaf9a3f025b7, type: 3}
+  m_PrefabInstance: {fileID: 2612504137997650927}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1450417027895766404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7966984375728747540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95495beeedb238044b4f6ddfbe3d2183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invalidLayers:
+    serializedVersion: 2
+    m_Bits: 65

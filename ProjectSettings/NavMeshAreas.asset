@@ -14,11 +14,11 @@ NavMeshProjectSettings:
   - name: Breakable - Weak
     cost: 50
   - name: Breakable - Medium
-    cost: 150
+    cost: 100
   - name: Breakable - Strong
-    cost: 250
+    cost: 150
   - name: Barbedwire
-    cost: 20
+    cost: 25
   - name: 
     cost: 1
   - name: 

@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: healthObj
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2719186327840819300, guid: c447fa352ed4d504b8b2da63639b624c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3978577155359660761, guid: c447fa352ed4d504b8b2da63639b624c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -60,9 +64,17 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: dce09837ef2c520438ba1e0c4b489364, type: 2}
+    - target: {fileID: 5966435103294501129, guid: c447fa352ed4d504b8b2da63639b624c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8209757971308955282, guid: c447fa352ed4d504b8b2da63639b624c, type: 3}
       propertyPath: m_Name
       value: Barricade sandbag preview Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8209757971308955282, guid: c447fa352ed4d504b8b2da63639b624c, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8800735956747213147, guid: c447fa352ed4d504b8b2da63639b624c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -73,6 +85,7 @@ PrefabInstance:
     - {fileID: 2308446029210964965, guid: c447fa352ed4d504b8b2da63639b624c, type: 3}
     - {fileID: 525470032971419291, guid: c447fa352ed4d504b8b2da63639b624c, type: 3}
     - {fileID: 8800735956747213147, guid: c447fa352ed4d504b8b2da63639b624c, type: 3}
+    - {fileID: 2343140386230482242, guid: c447fa352ed4d504b8b2da63639b624c, type: 3}
     m_RemovedGameObjects:
     - {fileID: 3503084403036583166, guid: c447fa352ed4d504b8b2da63639b624c, type: 3}
     - {fileID: 4650568907718537648, guid: c447fa352ed4d504b8b2da63639b624c, type: 3}

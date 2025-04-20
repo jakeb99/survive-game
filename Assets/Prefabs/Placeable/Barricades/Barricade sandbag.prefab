@@ -86,6 +86,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1504112223404141667, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
+      propertyPath: itemCost
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: -1504112223404141667, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
+      propertyPath: itemName
+      value: Sandbags
+      objectReference: {fileID: 0}
+    - target: {fileID: -1504112223404141667, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
+      propertyPath: itemType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -1504112223404141667, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
+      propertyPath: itemHealth
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -1504112223404141667, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
+      propertyPath: itemDescription
+      value: Sandbags offer greate durability at a reasonable cost.
+      objectReference: {fileID: 0}
     - target: {fileID: 3568731738809253764, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -105,6 +125,14 @@ PrefabInstance:
     - target: {fileID: 7429624099821248226, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
       propertyPath: m_Area
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7429624099821248226, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
+      propertyPath: m_Size.y
+      value: 1.2732376
+      objectReference: {fileID: 0}
+    - target: {fileID: 7429624099821248226, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
+      propertyPath: m_Center.y
+      value: -0.13661914
       objectReference: {fileID: 0}
     - target: {fileID: 8976359006943427590, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
       propertyPath: m_LocalPosition.x

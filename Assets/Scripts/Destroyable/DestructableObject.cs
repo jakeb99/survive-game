@@ -1,11 +1,10 @@
 using System;
 using Unity.AI.Navigation;
-using Unity.AI.Navigation.Editor;
 using UnityEngine;
 
 public class DestructableObject : MonoBehaviour, IDestroyable
 {
-    [SerializeField] private Health healthObj;
+    [SerializeField] protected Health healthObj;
     private NavMeshModifierVolume modifierVolume;
 
     public Action OnDestructableDestroyed;
@@ -21,7 +20,7 @@ public class DestructableObject : MonoBehaviour, IDestroyable
         
     }
 
-    public void Destroy()
+    public virtual void Destroy()
     {
         // set game object as inactive so we can rebake navmesh, other wise destroy does not complete untill end of update
         gameObject.SetActive(false);
@@ -33,10 +32,5 @@ public class DestructableObject : MonoBehaviour, IDestroyable
 
         Destroy(gameObject);
         healthObj.OnDeath -= Destroy;
-    }
-
-    private void SetNavMeshModifierAreaType()
-    {
-        
     }
 }

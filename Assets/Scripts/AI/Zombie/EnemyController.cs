@@ -5,6 +5,7 @@ public class EnemyController : MonoBehaviour
 {
     private EnemyState currentState;
     public Rigidbody rb {  get; private set; }
+    public float initialAgentSpeed;
 
     public GameObject currentTarget;
 
@@ -28,6 +29,7 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
+        agent.speed = initialAgentSpeed;
         currentState.OnStateEnter();
     }
 

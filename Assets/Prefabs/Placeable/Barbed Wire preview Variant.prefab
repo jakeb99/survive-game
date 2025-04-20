@@ -8,13 +8,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 881292441025434573, guid: 89dada90105e51441a0be6b6b450d4ba, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1673657626717680152, guid: 89dada90105e51441a0be6b6b450d4ba, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: dce09837ef2c520438ba1e0c4b489364, type: 2}
+    - target: {fileID: 1831233591376730070, guid: 89dada90105e51441a0be6b6b450d4ba, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4200234757570863181, guid: 89dada90105e51441a0be6b6b450d4ba, type: 3}
       propertyPath: m_Name
       value: Barbed Wire preview Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4200234757570863181, guid: 89dada90105e51441a0be6b6b450d4ba, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8976359006943427590, guid: 89dada90105e51441a0be6b6b450d4ba, type: 3}
       propertyPath: m_LocalPosition.x
@@ -58,9 +70,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3568731738809253764, guid: 89dada90105e51441a0be6b6b450d4ba, type: 3}
+    - {fileID: 1614409145911657889, guid: 89dada90105e51441a0be6b6b450d4ba, type: 3}
+    - {fileID: 8515622909786285394, guid: 89dada90105e51441a0be6b6b450d4ba, type: 3}
     m_RemovedGameObjects:
     - {fileID: 805849572068153199, guid: 89dada90105e51441a0be6b6b450d4ba, type: 3}
     - {fileID: 8879309108729811489, guid: 89dada90105e51441a0be6b6b450d4ba, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4200234757570863181, guid: 89dada90105e51441a0be6b6b450d4ba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -2063543801303027913}
   m_SourcePrefab: {fileID: 100100000, guid: 89dada90105e51441a0be6b6b450d4ba, type: 3}
+--- !u!1 &6938595296565692858 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4200234757570863181, guid: 89dada90105e51441a0be6b6b450d4ba, type: 3}
+  m_PrefabInstance: {fileID: 6485443957101439479}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-2063543801303027913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6938595296565692858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95495beeedb238044b4f6ddfbe3d2183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invalidLayers:
+    serializedVersion: 2
+    m_Bits: 65

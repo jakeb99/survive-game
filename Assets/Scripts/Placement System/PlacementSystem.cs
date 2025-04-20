@@ -38,15 +38,15 @@ public class PlacementSystem : MonoBehaviour
 
     private void UpdateInput()
     {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            EnterPlacementMode();
-        }
-        else if (Input.GetKeyDown(KeyCode.X))
-        {
-            ExitPlacementMode();
-        }
-        else if (Input.GetMouseButtonDown(0))
+        //if (Input.GetKeyDown(KeyCode.B))
+        //{
+        //    EnterPlacementMode();
+        //}
+        //else if (Input.GetKeyDown(KeyCode.X))
+        //{
+        //    ExitPlacementMode();
+        //}
+        if (Input.GetMouseButtonDown(0))
         {
             PlaceObject();
         }
@@ -107,5 +107,15 @@ public class PlacementSystem : MonoBehaviour
         {
             currentPlacementPostition = hit.point;
         }
+    }
+
+    public void SetPlaceableObjectPrefab(GameObject obj)
+    {
+        placeableObjectPrefab = obj;
+    }
+
+    public void SetPreviewObjectPrefab(GameObject obj)
+    {
+        previewObjectPrefab = obj;
     }
 }

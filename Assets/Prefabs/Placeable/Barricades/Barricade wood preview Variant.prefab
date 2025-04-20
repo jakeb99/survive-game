@@ -16,6 +16,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barricade wood preview Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1593678260297454367, guid: e9ddff5ac27019b4483bf9293a48480a, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3836507861518492804, guid: e9ddff5ac27019b4483bf9293a48480a, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5820256384640733012, guid: e9ddff5ac27019b4483bf9293a48480a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -56,14 +64,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8533459549878948070, guid: e9ddff5ac27019b4483bf9293a48480a, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2148626275788082390, guid: e9ddff5ac27019b4483bf9293a48480a, type: 3}
     - {fileID: 7929647769889369182, guid: e9ddff5ac27019b4483bf9293a48480a, type: 3}
     - {fileID: 5186517163480991336, guid: e9ddff5ac27019b4483bf9293a48480a, type: 3}
     - {fileID: 6969833596044991254, guid: e9ddff5ac27019b4483bf9293a48480a, type: 3}
+    - {fileID: 5149737856929112271, guid: e9ddff5ac27019b4483bf9293a48480a, type: 3}
     m_RemovedGameObjects:
     - {fileID: 6300111724795355507, guid: e9ddff5ac27019b4483bf9293a48480a, type: 3}
     - {fileID: 2844350026871579709, guid: e9ddff5ac27019b4483bf9293a48480a, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1593678260297454367, guid: e9ddff5ac27019b4483bf9293a48480a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9218000518224241476}
   m_SourcePrefab: {fileID: 100100000, guid: e9ddff5ac27019b4483bf9293a48480a, type: 3}
+--- !u!1 &1821381604646022485 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1593678260297454367, guid: e9ddff5ac27019b4483bf9293a48480a, type: 3}
+  m_PrefabInstance: {fileID: 1106540823967809098}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9218000518224241476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821381604646022485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95495beeedb238044b4f6ddfbe3d2183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invalidLayers:
+    serializedVersion: 2
+    m_Bits: 65
