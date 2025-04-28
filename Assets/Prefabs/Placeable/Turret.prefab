@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 7363207407686198930}
   - component: {fileID: 6324368366318852406}
   - component: {fileID: 3666074988293618057}
-  - component: {fileID: 8911286330151367602}
+  - component: {fileID: 5461670041372368136}
   m_Layer: 6
   m_Name: Turret
   m_TagString: Untagged
@@ -331,31 +331,27 @@ MonoBehaviour:
   turretBasePivot: {fileID: 3192781227739319297}
   turretGunPivot: {fileID: 4459779068564195898}
   weaponTip: {fileID: 2870825460017639520}
+  enemyTag: Enemy
+  turretRange: 0
+  rotationSpeed: 0
   currentTarget: {fileID: 0}
-  triggerSphereRadius: 4
---- !u!136 &8911286330151367602
-CapsuleCollider:
+  shootingController: {fileID: 5461670041372368136}
+--- !u!114 &5461670041372368136
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 576960975035845389}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 2
-  m_Height: 10
-  m_Direction: 1
-  m_Center: {x: -2, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49061de466040f342958acaa1d4620f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireRate: 1
+  fireCooldown: 1
+  bulletSpped: 100
+  bulletPrefab: {fileID: 5026474587697738131, guid: 1af50173c48e05d4b9eb6444fccdabe9, type: 3}
 --- !u!1 &813948096910858478
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,12 +462,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3876214801550839853}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.471, y: 0.034, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.6335001, y: 0.035300016, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5736267875938188694}
+  m_Father: {fileID: 4459779068564195898}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5505513657378416290
 GameObject:
@@ -680,7 +676,6 @@ GameObject:
   - component: {fileID: 3192781227739319297}
   - component: {fileID: 712038825236555672}
   - component: {fileID: 2906249466443563890}
-  - component: {fileID: 6967281486615888944}
   m_Layer: 6
   m_Name: base pivot
   m_TagString: Untagged
@@ -696,7 +691,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6450169432928513014}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.04160004, y: 0.575, z: 0}
   m_LocalScale: {x: 0.2, y: 0.08, z: 0.2}
   m_ConstrainProportionsScale: 0
@@ -759,29 +754,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &6967281486615888944
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6450169432928513014}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &6465640822022946648
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,6 +1055,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5030619519269451161}
     m_Modifications:
+    - target: {fileID: 612471240634574139, guid: 9c4b5aad1aa9c9a4ea1f8648d5a6a03a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 781042324562925942, guid: 9c4b5aad1aa9c9a4ea1f8648d5a6a03a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4509448254712707915, guid: 9c4b5aad1aa9c9a4ea1f8648d5a6a03a, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.54
@@ -1139,9 +1119,17 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5873924369632039644, guid: 9c4b5aad1aa9c9a4ea1f8648d5a6a03a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6215338266569499693, guid: 9c4b5aad1aa9c9a4ea1f8648d5a6a03a, type: 3}
       propertyPath: m_Name
       value: Health Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 6215338266569499693, guid: 9c4b5aad1aa9c9a4ea1f8648d5a6a03a, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1268,12 +1256,12 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 8005316354712685914, guid: 6c7859e017cea78489d643b95bb38ec3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2870825460017639520}
     - targetCorrespondingSourceObject: {fileID: 2118829950499568374, guid: 6c7859e017cea78489d643b95bb38ec3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3677377207899941710}
+    - targetCorrespondingSourceObject: {fileID: 2118829950499568374, guid: 6c7859e017cea78489d643b95bb38ec3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2870825460017639520}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c7859e017cea78489d643b95bb38ec3, type: 3}
 --- !u!4 &4459779068564195898 stripped
