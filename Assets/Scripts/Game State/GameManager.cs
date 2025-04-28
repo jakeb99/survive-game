@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 
     public PlacementSystem PlacementSystem;
     public UIManager UIManager;
+    public Camera SceneCamera;
+    public MeshRenderer PlaceableAreaMesh;
 
     private void Awake()
     {
@@ -31,5 +33,10 @@ public class GameManager : MonoBehaviour
         CurrentState.OnStateExit();
         CurrentState = state;
         CurrentState.OnStateEnter();
+    }
+
+    public void OnStartWaveButtonPressed()
+    {
+        ChangeState(new GameWaveState(this));
     }
 }
