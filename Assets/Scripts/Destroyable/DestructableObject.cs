@@ -2,7 +2,7 @@ using System;
 using Unity.AI.Navigation;
 using UnityEngine;
 
-public class DestructableObject : MonoBehaviour, IDestroyable
+public class DestructableObject : MonoBehaviour, IDestroyable, IInteractable
 {
     [SerializeField] protected Health healthObj;
     private NavMeshModifierVolume modifierVolume;
@@ -33,4 +33,28 @@ public class DestructableObject : MonoBehaviour, IDestroyable
         Destroy(gameObject);
         healthObj.OnDeath -= Destroy;
     }
+
+    InteractionOption[] IInteractable.GetOptions() => new[]
+    {
+        new InteractionOption { label = "Move" },
+        new InteractionOption {label = "Repair"},
+        new InteractionOption {label = "Scrap"},
+        new InteractionOption {label = "Upgrade"},
+    };
+
+    void IInteractable.OnOptionSelected(int index)
+    {
+        switch (index)
+        {
+            case 0: MoveObject(); break;
+            case 1: RepairObject(); break;
+            case 2: ScrapObject(); break;
+            case 3: UpgradeObject(); break;
+        }
+    }
+
+    private void MoveObject() { }
+    private void RepairObject() { }
+    private void ScrapObject() { }
+    private void UpgradeObject() { }
 }

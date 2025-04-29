@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering.Universal.Internal;
 
-public class TurretController : MonoBehaviour
+public class TurretController : MonoBehaviour, IInteractable
 {
     [Header("Turret Settings")]
     [SerializeField] Transform turretBasePivot;
@@ -140,4 +140,27 @@ public class TurretController : MonoBehaviour
         Gizmos.DrawSphere(weaponTip.position, 0.05f);
     }
 
+    InteractionOption[] IInteractable.GetOptions() => new[]
+    {
+        new InteractionOption { label = "Move" },
+        new InteractionOption {label = "Repair"},
+        new InteractionOption {label = "Scrap"},
+        new InteractionOption {label = "Upgrade"},
+    };
+
+    void IInteractable.OnOptionSelected(int index)
+    {
+        switch (index)
+        {
+            case 0: MoveObject(); break;
+            case 1: RepairObject(); break;
+            case 2: ScrapObject(); break;
+            case 3: UpgradeObject(); break;
+        }
+    }
+
+    private void MoveObject() { }
+    private void RepairObject() { }
+    private void ScrapObject() { }
+    private void UpgradeObject() { }
 }
