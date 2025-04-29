@@ -6,10 +6,14 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance {  get { return instance; } }
     public GameState CurrentState {  get; private set; }
 
-    public PlacementSystem PlacementSystem;
-    public UIManager UIManager;
+    [field: SerializeField]public PlacementSystem PlacementSystem { get; private set; }
+    [field: SerializeField]public UIManager UIManager { get; private set; }
+    [field: SerializeField]public WaveManager WaveManager { get; private set; }
+
     public Camera SceneCamera;
     public MeshRenderer PlaceableAreaMesh;
+    public GameObject Player {  get; private set; }
+    public string PlayerTag;
 
     private void Awake()
     {
@@ -20,6 +24,8 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+
+        Player = GameObject.FindGameObjectWithTag(PlayerTag);
         CurrentState = new GameSetupState(this);
     }
 

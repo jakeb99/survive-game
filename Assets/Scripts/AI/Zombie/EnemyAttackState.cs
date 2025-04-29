@@ -11,6 +11,8 @@ public class EnemyAttackState : EnemyState
 
     public override void OnStateEnter()
     {
+        enemy.agent.isStopped = true;
+        enemy.agent.velocity = Vector3.zero;
         Debug.Log("Entered Attack State");
         if (attackAbility)
         {
@@ -24,6 +26,7 @@ public class EnemyAttackState : EnemyState
 
     public override void OnStateExit()
     {
+        enemy.agent.isStopped = false;
         Debug.Log("Exited Attack State");
         if (attackAbility)
         {

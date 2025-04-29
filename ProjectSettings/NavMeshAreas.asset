@@ -6,11 +6,11 @@ NavMeshProjectSettings:
   serializedVersion: 2
   areas:
   - name: Walkable
-    cost: 1
+    cost: 5
   - name: Not Walkable
     cost: 1
   - name: Jump
-    cost: 2
+    cost: 6
   - name: Breakable - Weak
     cost: 50
   - name: Breakable - Medium
@@ -20,7 +20,7 @@ NavMeshProjectSettings:
   - name: Barbedwire
     cost: 25
   - name: Turret
-    cost: -10
+    cost: 3
   - name: 
     cost: 1
   - name: 

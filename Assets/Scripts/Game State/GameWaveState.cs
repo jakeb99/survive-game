@@ -9,7 +9,7 @@ public class GameWaveState : GameState
     public override void OnStateEnter()
     {
         Debug.Log("Entered Wave State");
-        // init wave system
+        gameManager.WaveManager.StartWave();
     }
 
     public override void OnStateExit()

@@ -1,13 +1,17 @@
+using System;
 using UnityEngine;
 
 public class AttackAbility : MonoBehaviour
 {
     [SerializeField] private float damageAmount;
     [SerializeField] private float attackCoolDown;
+    [SerializeField] private AudioClip attackSound;
 
     private Health attackTargetHealthObj;
     private bool isAttacking;
     private float timer = 0;
+
+    public Action OnAttack;
 
     private void Update()
     {
@@ -33,6 +37,7 @@ public class AttackAbility : MonoBehaviour
 
     private void Attack()
     {
+        OnAttack?.Invoke();
         if (attackTargetHealthObj)
         {
             attackTargetHealthObj.DecrementHealth(damageAmount);

@@ -14,7 +14,6 @@ public class PreviewObjectValidChecker : MonoBehaviour
         if (((1 << other.gameObject.layer) & invalidLayers) != 0)
         {
             collidingObjects.Add(other);
-            Debug.Log($"Colliding with {other.name}");
             IsValid = false;
         }
     }

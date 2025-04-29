@@ -38,17 +38,14 @@ public class PlacementSystem : MonoBehaviour
 
     private void UpdateInput()
     {
-        //if (Input.GetKeyDown(KeyCode.B))
-        //{
-        //    EnterPlacementMode();
-        //}
-        //else if (Input.GetKeyDown(KeyCode.X))
-        //{
-        //    ExitPlacementMode();
-        //}
+
         if (Input.GetMouseButtonDown(0))
         {
             PlaceObject();
+        }
+        if ( Input.GetMouseButtonDown(1) && inPlacementMode)
+        {
+            ExitPlacementMode();
         }
 
     }
@@ -83,7 +80,7 @@ public class PlacementSystem : MonoBehaviour
     public void EnterPlacementMode()
     {
         if (inPlacementMode) return;
-
+        GameManager.Instance.UIManager.HideShopUI();
         inPlacementMode = true;
         previewObject = Instantiate(previewObjectPrefab, currentPlacementPostition, previewObjectPrefab.transform.rotation);
 
@@ -94,6 +91,7 @@ public class PlacementSystem : MonoBehaviour
         Destroy(previewObject);
         previewObject = null;
         inPlacementMode = false;
+        GameManager.Instance.UIManager.ShowShopUI();
     }
 
     private void GetSelectedGroundPosition()

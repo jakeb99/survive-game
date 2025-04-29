@@ -4,6 +4,7 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour
 {
     private EnemyState currentState;
+    private Health healthObj;
     public Rigidbody rb {  get; private set; }
     public float initialAgentSpeed;
 
@@ -24,12 +25,16 @@ public class EnemyController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
 
+        healthObj = GetComponent<Health>();
+
         currentState = new EnemyMoveToState(this);
     } 
 
     private void Start()
     {
+        player = GameManager.Instance.Player;
         agent.speed = initialAgentSpeed;
+        healthObj.OnDeath += EnemyKilled;
         currentState.OnStateEnter();
     }
 
@@ -43,6 +48,14 @@ public class EnemyController : MonoBehaviour
         currentState.OnStateExit();
         currentState = state;
         currentState.OnStateEnter();
+    }
+
+    private void EnemyKilled()
+    {
+        Debug.Log($"{gameObject.name} was killed!");
+        gameObject.SetActive(false);
+        Destroy(gameObject);
+        return;
     }
 
     private void OnDrawGizmos()

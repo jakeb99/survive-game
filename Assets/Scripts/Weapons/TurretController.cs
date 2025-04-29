@@ -18,18 +18,24 @@ public class TurretController : MonoBehaviour
     //[SerializeField] private float fireRate;
     //[SerializeField] private float fireCooldown = 0f;
     [SerializeField] Transform weaponTip;
+    [SerializeField] AudioClip gunSound;
+    [SerializeField] ParticleSystem muzzleFlash;
 
 
     private AttackAbility attackAbility;
+    private AudioSource audioSource;
 
     private void Awake()
     {
         attackAbility = GetComponent<AttackAbility>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
     {
         InvokeRepeating("UpdateCurrentTarget", 0, 0.5f);
+        attackAbility.OnAttack += ShootAudio;
+        attackAbility.OnAttack += MuzzleFlash;
     }
 
     private void Update()
@@ -41,16 +47,20 @@ public class TurretController : MonoBehaviour
         }
 
         FaceEnemy();
-        //shootingController.Shoot(weaponTip);
 
-        //if (fireCooldown <= 0f)
-        //{
-        //    Shoot();
-        //    fireCooldown = 1f/fireRate;
-        //}
-
-        //fireCooldown -= Time.deltaTime;
         attackAbility.StartAttack(currentTarget);
+    }
+
+    private void ShootAudio()
+    {
+        if (audioSource != null)
+            audioSource.PlayOneShot(gunSound);
+    }
+
+    private void MuzzleFlash()
+    {
+        if (muzzleFlash != null)
+            muzzleFlash.Play();
     }
 
     void UpdateCurrentTarget()
