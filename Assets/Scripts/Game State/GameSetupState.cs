@@ -1,7 +1,9 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameSetupState : GameState
 {
+    
     public GameSetupState(GameManager gameManager) : base(gameManager)
     {
     }
@@ -15,6 +17,8 @@ public class GameSetupState : GameState
         // enable blue area to highlight where player can build
         gameManager.PlaceableAreaMesh.enabled = true;
         // allow building / placing items
+
+        TogglePlacedTurretsRangeIndicatorShown(true);
     }
 
     public override void OnStateExit()
@@ -25,11 +29,26 @@ public class GameSetupState : GameState
         // turn off abiliy to place items
         gameManager.PlaceableAreaMesh.enabled = false;
         // call NavMeshManager and bake the nav mesh surface
+        TogglePlacedTurretsRangeIndicatorShown(false);
         NavMeshManager.Instance.BakeNavMesh();
     }
 
     public override void OnStateUpdate()
     {
-        // wait for the start night button to be pressed then go to the wave state
+       
+    }
+
+    /// <summary>
+    /// Toggle if the range indicator is shown
+    /// </summary>
+    /// <param name="isShown">shown if true</param>
+    private void TogglePlacedTurretsRangeIndicatorShown(bool isShown)
+    {
+        TurretController[] placedTurrets = GameObject.FindObjectsByType<TurretController>(FindObjectsSortMode.None);
+
+        foreach (TurretController placedTurret in placedTurrets)
+        {
+            placedTurret.ShowRangeIndicator(isShown);
+        }
     }
 }

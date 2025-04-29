@@ -13,8 +13,8 @@ public class PlacementSystem : MonoBehaviour
     [SerializeField] private Color validColour;
     [SerializeField] private Color invalidColour;
 
+    public bool inPlacementMode { get; private set; } = false;
     private GameObject previewObject = null;
-    private bool inPlacementMode = false;
     private bool validPlacementPos = true;
 
     private void Update()

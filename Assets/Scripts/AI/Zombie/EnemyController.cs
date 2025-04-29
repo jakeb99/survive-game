@@ -54,6 +54,7 @@ public class EnemyController : MonoBehaviour
     {
         Debug.Log($"{gameObject.name} was killed!");
         gameObject.SetActive(false);
+        GameManager.Instance.WaveManager.spawnedEnemies.Remove(gameObject);
         Destroy(gameObject);
         return;
     }

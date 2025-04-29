@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Rendering.Universal.Internal;
 
 public class TurretController : MonoBehaviour
@@ -10,13 +11,12 @@ public class TurretController : MonoBehaviour
     [SerializeField] Transform turretGunPivot;
     [SerializeField] string enemyTag = "Enemy";
     [SerializeField] float turretRange;
+    [SerializeField] GameObject rangeIndicator;
     [SerializeField] float rotationSpeed;
 
     [SerializeField] GameObject currentTarget;
 
     [Header("Shooting Settings")]
-    //[SerializeField] private float fireRate;
-    //[SerializeField] private float fireCooldown = 0f;
     [SerializeField] Transform weaponTip;
     [SerializeField] AudioClip gunSound;
     [SerializeField] ParticleSystem muzzleFlash;
@@ -34,15 +34,22 @@ public class TurretController : MonoBehaviour
     private void Start()
     {
         InvokeRepeating("UpdateCurrentTarget", 0, 0.5f);
-        attackAbility.OnAttack += ShootAudio;
-        attackAbility.OnAttack += MuzzleFlash;
+        if (attackAbility != null)
+        {
+            attackAbility.OnAttack += ShootAudio;
+            attackAbility.OnAttack += MuzzleFlash;
+            attackAbility.OnAttack += TrackShotStats;
+        }
+
+        rangeIndicator.transform.position = transform.position;
+        rangeIndicator.transform.localScale = new Vector3(turretRange/transform.localScale.x, 0.1f, turretRange/transform.localScale.z);
     }
 
     private void Update()
     {
         if (currentTarget == null) 
         {
-            attackAbility.StopAttack();
+            if (attackAbility != null) attackAbility.StopAttack();
             return;
         }
 
@@ -61,6 +68,11 @@ public class TurretController : MonoBehaviour
     {
         if (muzzleFlash != null)
             muzzleFlash.Play();
+    }
+
+    private void TrackShotStats()
+    {
+        GameManager.Instance.PlayerStats.TotalBulletsShot++;
     }
 
     void UpdateCurrentTarget()
@@ -109,6 +121,11 @@ public class TurretController : MonoBehaviour
         Quaternion gunRotation = Quaternion.LookRotation(gunDir) * rotateBy90Deg;
         turretGunPivot.rotation = Quaternion.Slerp(turretGunPivot.rotation, gunRotation, rotationSpeed * Time.deltaTime);
         
+    }
+
+    public void ShowRangeIndicator(bool isShown)
+    {
+        rangeIndicator.SetActive(isShown);
     }
 
     private void OnDrawGizmosSelected()

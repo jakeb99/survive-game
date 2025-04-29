@@ -1,6 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.UI;
+using Random = UnityEngine.Random;
 
 public class WaveManager : MonoBehaviour
 {
@@ -8,9 +9,10 @@ public class WaveManager : MonoBehaviour
 
     [SerializeField] private List<Enemy> possibleEnemies = new List<Enemy>();
     [SerializeField] private List<Transform> spawnPoints = new List<Transform>();
-    [SerializeField] private List<GameObject> spawnedEnemies = new List<GameObject>();
+    [SerializeField] public List<GameObject> spawnedEnemies = new List<GameObject>();
     [SerializeField] private List<GameObject> enemiesToSpawn = new List<GameObject>();
 
+    [SerializeField] private int maxSpawnedEnemies = 5;
     [SerializeField] private int waveValueMultiplier = 10;
     private int wavePoints;
     private bool waveStarted = false;
@@ -20,9 +22,13 @@ public class WaveManager : MonoBehaviour
     private float spawnInterval;
     private float spawnTimer;
 
+    public Action OnWaveStart;
+    public Action OnWaveEnd;
+    public Action<int> OnEnemiesRemainingUpdate;
+
     private void Awake()
     {
-        CurrentWave = 1;
+        CurrentWave = 1; //TODO: get from save
     }
 
     /// <summary>
@@ -34,7 +40,8 @@ public class WaveManager : MonoBehaviour
         Debug.Log("generated wave");
         spawnInterval = waveDuration / enemiesToSpawn.Count;
         waveTimer = waveDuration;
-
+        maxSpawnedEnemies += CurrentWave * (waveValueMultiplier / 2);
+        OnWaveStart?.Invoke();
         waveStarted = true;
     }
 
@@ -43,32 +50,37 @@ public class WaveManager : MonoBehaviour
         waveStarted = false;
         spawnedEnemies.Clear();
         CurrentWave++;
+
+        OnWaveEnd?.Invoke();
     }
 
     private void FixedUpdate()
     {
         if (waveStarted)
         {
+            Debug.Log(spawnTimer);
             if (spawnTimer <= 0)
             {
                 // spawn an enemy
-                if (enemiesToSpawn.Count > 0)
+                if (enemiesToSpawn.Count > 0 && spawnedEnemies.Count < maxSpawnedEnemies)
                 {
                     int randSpawnIndex = Random.Range(0, spawnPoints.Count);
                     Debug.Log("Spawning enemy!");
                     GameObject enemy = Instantiate(enemiesToSpawn[0], spawnPoints[randSpawnIndex].position, Quaternion.identity);
                     enemiesToSpawn.RemoveAt(0);
                     spawnedEnemies.Add(enemy);
-                    spawnTimer = spawnInterval;
-                } else
+                    spawnTimer = Random.Range(0f, spawnInterval);
+                } else if (enemiesToSpawn.Count == 0 && spawnedEnemies.Count == 0)
                 {
                     waveTimer = 0;
+                    StopWave();
                 }
             } else
             {
                 spawnTimer -= Time.fixedDeltaTime;
                 waveTimer -= Time.fixedDeltaTime;
             }
+            OnEnemiesRemainingUpdate?.Invoke(enemiesToSpawn.Count + spawnedEnemies.Count);
         }
     }
 

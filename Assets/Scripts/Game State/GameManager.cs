@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [field: SerializeField]public PlacementSystem PlacementSystem { get; private set; }
     [field: SerializeField]public UIManager UIManager { get; private set; }
     [field: SerializeField]public WaveManager WaveManager { get; private set; }
+    [field: SerializeField] public PlayerStats PlayerStats { get; private set; }
 
     public Camera SceneCamera;
     public MeshRenderer PlaceableAreaMesh;
