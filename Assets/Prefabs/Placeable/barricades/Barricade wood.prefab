@@ -146,6 +146,14 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: -0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 7759120844802503994, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
+      propertyPath: previewPrefab
+      value: 
+      objectReference: {fileID: 1821381604646022485, guid: 3f843ee5c08095d48b2a85c2978b8c9a, type: 3}
+    - target: {fileID: 7759120844802503994, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
+      propertyPath: <previewPrefab>k__BackingField
+      value: 
+      objectReference: {fileID: 1821381604646022485, guid: 3f843ee5c08095d48b2a85c2978b8c9a, type: 3}
     - target: {fileID: 8976359006943427590, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

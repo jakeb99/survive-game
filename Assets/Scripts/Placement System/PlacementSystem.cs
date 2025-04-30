@@ -8,6 +8,7 @@ public class PlacementSystem : MonoBehaviour
 
     [SerializeField] private GameObject placeableObjectPrefab;
     [SerializeField] private GameObject previewObjectPrefab;
+    [SerializeField] private GameObject oldObject;
 
     [SerializeField] private Material previewMat;
     [SerializeField] private Color validColour;
@@ -89,9 +90,19 @@ public class PlacementSystem : MonoBehaviour
     private void ExitPlacementMode()
     {
         Destroy(previewObject);
+        if (oldObject != null) Destroy(oldObject);
         previewObject = null;
         inPlacementMode = false;
         GameManager.Instance.UIManager.ShowShopUI();
+    }
+
+    public void EnterEditMode(GameObject objectToMove, GameObject objectPreview)
+    {
+        placeableObjectPrefab = objectToMove;
+        oldObject = objectToMove;
+        previewObjectPrefab = objectPreview;
+        
+        EnterPlacementMode();
     }
 
     private void GetSelectedGroundPosition()

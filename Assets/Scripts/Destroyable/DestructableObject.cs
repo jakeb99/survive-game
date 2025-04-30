@@ -1,17 +1,20 @@
 using System;
+using System.Collections;
 using Unity.AI.Navigation;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DestructableObject : MonoBehaviour, IDestroyable, IInteractable
 {
     [SerializeField] protected Health healthObj;
+    [field: SerializeField] public GameObject previewPrefab {  get; private set; }
     private NavMeshModifierVolume modifierVolume;
 
     public Action OnDestructableDestroyed;
 
     private void Awake()
     {
-        healthObj.OnDeath += Destroy;
+        healthObj.OnDeath += DestroyDestructable;
         modifierVolume = GetComponentInChildren<NavMeshModifierVolume>();
     }
 
@@ -20,7 +23,7 @@ public class DestructableObject : MonoBehaviour, IDestroyable, IInteractable
         
     }
 
-    public virtual void Destroy()
+    public virtual void DestroyDestructable()
     {
         // set game object as inactive so we can rebake navmesh, other wise destroy does not complete untill end of update
         gameObject.SetActive(false);
@@ -31,7 +34,7 @@ public class DestructableObject : MonoBehaviour, IDestroyable, IInteractable
         NavMeshManager.Instance.BakeNavMesh();
 
         Destroy(gameObject);
-        healthObj.OnDeath -= Destroy;
+        healthObj.OnDeath -= DestroyDestructable;
     }
 
     InteractionOption[] IInteractable.GetOptions() => new[]
@@ -53,7 +56,11 @@ public class DestructableObject : MonoBehaviour, IDestroyable, IInteractable
         }
     }
 
-    private void MoveObject() { }
+    private void MoveObject() 
+    {
+        //copy.SetActive(false);
+        GameManager.Instance.PlacementSystem.EnterEditMode(gameObject, previewPrefab);
+    }
     private void RepairObject() { }
     private void ScrapObject() { }
     private void UpgradeObject() { }

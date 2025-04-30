@@ -32,9 +32,9 @@ public class BarbedWire : DestructableObject
         }
     }
 
-    public override void Destroy()
+    public override void DestroyDestructable()
     {
-        base.Destroy();
+        base.DestroyDestructable();
         enemy.agent.speed = enemy.initialAgentSpeed;
     }
 }
