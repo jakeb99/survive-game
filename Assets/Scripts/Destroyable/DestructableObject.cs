@@ -15,8 +15,12 @@ public class DestructableObject : MonoBehaviour, IDestroyable, IInteractable
 
     private void Awake()
     {
-        healthObj.OnDeath += DestroyDestructable;
         modifierVolume = GetComponentInChildren<NavMeshModifierVolume>();
+    }
+
+    private void Start()
+    {
+        healthObj.OnDeath += DestroyDestructable;
     }
 
     public void Update()
