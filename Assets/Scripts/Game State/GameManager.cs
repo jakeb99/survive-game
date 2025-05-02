@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
     public MeshRenderer PlaceableAreaMesh;
     public GameObject Player {  get; private set; }
     public string PlayerTag;
+    public Action<int> OnUpdateScrapTotal;
 
     private void Awake()
     {
@@ -28,10 +30,15 @@ public class GameManager : MonoBehaviour
 
         Player = GameObject.FindGameObjectWithTag(PlayerTag);
         CurrentState = new GameSetupState(this);
+
+        // hardcoded player stats fro testing
+        PlayerStats = new PlayerStats();
+        
     }
 
     private void Start()
     {
+        IncreaseScrap(900); // starting scrap
         CurrentState.OnStateEnter();
     }
 
@@ -45,5 +52,22 @@ public class GameManager : MonoBehaviour
     public void OnStartWaveButtonPressed()
     {
         ChangeState(new GameWaveState(this));
+    }
+
+    public bool DecreaseScrap(int amount)
+    {
+        if (PlayerStats.TotalScrap - amount >= 0)
+        {
+            PlayerStats.TotalScrap -= amount;
+            OnUpdateScrapTotal?.Invoke(PlayerStats.TotalScrap);
+            return true;
+        }
+        return false;
+    }
+
+    public void IncreaseScrap(int amount)
+    {
+        PlayerStats.TotalScrap += amount;
+        OnUpdateScrapTotal?.Invoke(PlayerStats.TotalScrap);
     }
 }

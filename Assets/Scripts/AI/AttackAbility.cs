@@ -30,7 +30,7 @@ public class AttackAbility : MonoBehaviour
 
     public void StartAttack(GameObject target)
     {
-        attackTargetHealthObj = target.GetComponent<Health>();
+        attackTargetHealthObj = target.GetComponentInParent<Health>();
         isAttacking = true;
         Debug.Log($"Attakcing {target.name}");
     }

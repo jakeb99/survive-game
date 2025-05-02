@@ -21,6 +21,9 @@ public class TurretController : MonoBehaviour, IInteractable
     [SerializeField] AudioClip gunSound;
     [SerializeField] ParticleSystem muzzleFlash;
 
+    [Header("Misc")]
+    [SerializeField] GameObject previewPrefab;
+
 
     private AttackAbility attackAbility;
     private AudioSource audioSource;
@@ -159,8 +162,45 @@ public class TurretController : MonoBehaviour, IInteractable
         }
     }
 
-    private void MoveObject() { }
-    private void RepairObject() { }
-    private void ScrapObject() { }
-    private void UpgradeObject() { }
+    private void MoveObject()
+    {
+        GameManager.Instance.PlacementSystem.EnterEditMode(gameObject, previewPrefab);
+    }
+    private void RepairObject()
+    {
+        int cost = CalcRepairCost();
+        if (GameManager.Instance.DecreaseScrap(cost))
+        {
+            Debug.Log($"repaired with cost of {cost}");
+            healthObj.ResetToMaxHealth();
+        }
+    }
+    private void ScrapObject()
+    {
+        int scrapVal = CalcScrapVal();
+        GameManager.Instance.IncreaseScrap(scrapVal);
+        DestroyDestructable();
+    }
+
+    private int CalcScrapVal()
+    {
+        int cost = gameObject.GetComponent<ShopItemData>().itemCost;
+
+        return (int)(cost * (healthObj.currentHealth / healthObj.maxHealth));
+    }
+
+    private int CalcRepairCost()
+    {
+        Debug.Log($"curr health {healthObj.currentHealth}");
+        float amountToFix = healthObj.maxHealth - healthObj.currentHealth;
+        Debug.Log($"amount to fix: {amountToFix}");
+        if (amountToFix == 0) return 0;
+
+        float costPerHP = healthObj.maxHealth / gameObject.GetComponent<ShopItemData>().itemCost;
+
+        float repairCost = costPerHP * amountToFix;
+
+        Debug.Log($"cost per hp: {costPerHP}, repair cost: {repairCost}");
+        return (int)repairCost;
+    }
 }

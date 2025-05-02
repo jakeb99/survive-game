@@ -270,7 +270,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6069a2ab20b93fd41bfeec0af823da26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 4
   itemName: Barbed Wire
   itemCost: 15
   itemDescription: Good for slowing down zombies but breaks over time.
@@ -287,6 +286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthObj: {fileID: 4781729954992824076}
+  previewPrefab: {fileID: 6938595296565692858, guid: 49501c607f8ae614a85fa648c0529187, type: 3}
   damageAmount: 0.03
   speedInBarbedWire: 0.2
 --- !u!1001 &3276638864596235788

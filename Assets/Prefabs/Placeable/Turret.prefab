@@ -341,6 +341,7 @@ MonoBehaviour:
   weaponTip: {fileID: 2870825460017639520}
   gunSound: {fileID: 8300000, guid: ae11abfb784721649990a5ed65d63662, type: 3}
   muzzleFlash: {fileID: 3360940936961547733}
+  previewPrefab: {fileID: 6754839344814805098, guid: 3c3cf188b55087547bc2551c7fac1ef8, type: 3}
 --- !u!82 &163807451529633854
 AudioSource:
   m_ObjectHideFlags: 0

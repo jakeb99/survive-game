@@ -41,4 +41,10 @@ public class Health : MonoBehaviour
             OnIncrementHealth?.Invoke();
         }
     }
+
+    public void ResetToMaxHealth()
+    {
+        currentHealth = maxHealth;
+        OnIncrementHealth?.Invoke();
+    }
 }

@@ -23,6 +23,7 @@ public class UIManager : MonoBehaviour
     {
         GameManager.Instance.WaveManager.OnWaveEnd += UpdateWaveNumberText;
         GameManager.Instance.WaveManager.OnEnemiesRemainingUpdate += UpdateRemainingEnemiesText;
+        GameManager.Instance.OnUpdateScrapTotal += UpdateTotalScrapText;
 
         UpdateWaveNumberText();
         UpdateRemainingEnemiesText(0);
@@ -62,9 +63,9 @@ public class UIManager : MonoBehaviour
         currentWaveNumText.text = $"Wave: {GameManager.Instance.WaveManager.CurrentWave.ToString()}";
     }
 
-    public void UpdateTotalScrapText()
+    public void UpdateTotalScrapText(int total)
     {
-        currentTotalScrapText.text = $"Scrap: {GameManager.Instance.PlayerStats.TotalScrap.ToString()}";
+        currentTotalScrapText.text = $"Scrap: {total.ToString()}";
     }
 
     public void UpdateTotalKillsText()
