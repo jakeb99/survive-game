@@ -1,8 +1,4 @@
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.Rendering.Universal.Internal;
 
 public class TurretController : MonoBehaviour
 {
