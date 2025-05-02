@@ -29,6 +29,7 @@ public class UIManager : MonoBehaviour
         UpdateWaveNumberText();
         UpdateRemainingEnemiesText(0);
         UpdateTotalScrapText(GameManager.Instance.PlayerStats.TotalScrap);
+        UpdateTotalKillsText();
     }
 
     public void ShowShopUI()

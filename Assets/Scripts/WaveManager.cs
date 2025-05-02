@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class WaveManager : MonoBehaviour
+public class WaveManager : MonoBehaviour, IDataPersistence
 {
     public int CurrentWave { get; private set; }
 
@@ -25,11 +25,6 @@ public class WaveManager : MonoBehaviour
     public Action OnWaveStart;
     public Action OnWaveEnd;
     public Action<int> OnEnemiesRemainingUpdate;
-
-    private void Awake()
-    {
-        CurrentWave = 1; //TODO: get from save
-    }
 
     /// <summary>
     /// Start the wave of the undead. Dificulty based on point system.
@@ -69,6 +64,7 @@ public class WaveManager : MonoBehaviour
                     GameObject enemy = Instantiate(enemiesToSpawn[0], spawnPoints[randSpawnIndex].position, Quaternion.identity);
                     enemiesToSpawn.RemoveAt(0);
                     spawnedEnemies.Add(enemy);
+
                     spawnTimer = Random.Range(0f, spawnInterval);
                 } else if (enemiesToSpawn.Count == 0 && spawnedEnemies.Count == 0)
                 {
@@ -119,7 +115,15 @@ public class WaveManager : MonoBehaviour
         enemiesToSpawn = enemyList;
     }
 
-    
+    void IDataPersistence.LoadGameData(GameData data)
+    {
+        this.CurrentWave = data.CurrentWave;
+    }
+
+    void IDataPersistence.SaveGameData(ref GameData data)
+    {
+        data.CurrentWave = this.CurrentWave;
+    }
 }
 
 [System.Serializable]
