@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, IDataPersistence
 {
     private static GameManager instance;
     public static GameManager Instance {  get { return instance; } }
@@ -30,15 +30,11 @@ public class GameManager : MonoBehaviour
 
         Player = GameObject.FindGameObjectWithTag(PlayerTag);
         CurrentState = new GameSetupState(this);
-
-        // hardcoded player stats fro testing
-        PlayerStats = new PlayerStats();
         
     }
 
     private void Start()
     {
-        IncreaseScrap(900); // starting scrap
         CurrentState.OnStateEnter();
     }
 
@@ -69,5 +65,15 @@ public class GameManager : MonoBehaviour
     {
         PlayerStats.TotalScrap += amount;
         OnUpdateScrapTotal?.Invoke(PlayerStats.TotalScrap);
+    }
+
+    void IDataPersistence.LoadGameData(GameData data)
+    {
+        this.PlayerStats = data.PlayerStats;
+    }
+
+    void IDataPersistence.SaveGameData(ref GameData data)
+    {
+        data.PlayerStats = this.PlayerStats;
     }
 }

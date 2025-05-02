@@ -25,8 +25,10 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.WaveManager.OnEnemiesRemainingUpdate += UpdateRemainingEnemiesText;
         GameManager.Instance.OnUpdateScrapTotal += UpdateTotalScrapText;
 
+        // update to starting values
         UpdateWaveNumberText();
         UpdateRemainingEnemiesText(0);
+        UpdateTotalScrapText(GameManager.Instance.PlayerStats.TotalScrap);
     }
 
     public void ShowShopUI()

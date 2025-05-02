@@ -68,7 +68,6 @@ public class DestructableObject : MonoBehaviour, IDestroyable, IInteractable
         int cost = CalcRepairCost();
         if(GameManager.Instance.DecreaseScrap(cost))
         {
-            Debug.Log($"repaired with cost of {cost}");
             healthObj.ResetToMaxHealth();
         }
     }
@@ -88,16 +87,14 @@ public class DestructableObject : MonoBehaviour, IDestroyable, IInteractable
 
     private int CalcRepairCost()
     {
-        Debug.Log($"curr health {healthObj.currentHealth}");
         float amountToFix = healthObj.maxHealth - healthObj.currentHealth;
-        Debug.Log($"amount to fix: {amountToFix}");
+
         if (amountToFix == 0) return 0;
 
         float costPerHP = healthObj.maxHealth / gameObject.GetComponent<ShopItemData>().itemCost;
         
         float repairCost = costPerHP * amountToFix;
 
-        Debug.Log($"cost per hp: {costPerHP}, repair cost: {repairCost}");
         return (int) repairCost;
     }
 }
