@@ -38,6 +38,8 @@ public class DestructableObject : MonoBehaviour, IDestroyable, IInteractable
         // recalculate navmesh now that this obsticle is gone
         NavMeshManager.Instance.BakeNavMesh();
 
+        GameManager.Instance.PlacementSystem.RemovePlacedObject(gameObject);
+
         Destroy(gameObject);
         healthObj.OnDeath -= DestroyDestructable;
     }

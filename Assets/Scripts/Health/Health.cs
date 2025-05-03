@@ -10,12 +10,6 @@ public class Health : MonoBehaviour
     public Action OnDecrementHealth;
     public Action OnIncrementHealth;
 
-    private void Start()
-    {
-        // TODO - load from save
-        currentHealth = maxHealth;
-    }
-
     public void DecrementHealth(float amount)
     {
         currentHealth -= amount;
@@ -46,5 +40,10 @@ public class Health : MonoBehaviour
     {
         currentHealth = maxHealth;
         OnIncrementHealth?.Invoke();
+    }
+
+    public void SetCurrentHealth(float x)
+    {
+        currentHealth = x;
     }
 }

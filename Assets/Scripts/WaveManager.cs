@@ -53,7 +53,6 @@ public class WaveManager : MonoBehaviour, IDataPersistence
     {
         if (waveStarted)
         {
-            Debug.Log(spawnTimer);
             if (spawnTimer <= 0)
             {
                 // spawn an enemy

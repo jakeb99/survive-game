@@ -273,6 +273,7 @@ MonoBehaviour:
   itemName: Barbed Wire
   itemCost: 15
   itemDescription: Good for slowing down zombies but breaks over time.
+  type: 4
 --- !u!114 &8515622909786285394
 MonoBehaviour:
   m_ObjectHideFlags: 0

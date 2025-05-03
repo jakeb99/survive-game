@@ -254,6 +254,7 @@ MonoBehaviour:
   itemName: Turret
   itemCost: 45
   itemDescription: Hands free killing machine.
+  type: 3
 --- !u!114 &-8103927361743666348
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -54,8 +54,6 @@ public class DataPersistenceManager : MonoBehaviour
         {
             dataPersistentObject.LoadGameData(gameData);
         }
-
-        Debug.Log($"total scrap loaded: {gameData.PlayerStats.TotalScrap}");
     }
 
     private void SaveGame()
@@ -65,8 +63,6 @@ public class DataPersistenceManager : MonoBehaviour
         {
             dataPersistentObject.SaveGameData(ref gameData);
         }
-
-        Debug.Log($"total scrap saved: {gameData.PlayerStats.TotalScrap}");
 
         // TODO: save that data to a file using the date handler
         dataHandler.Save(gameData);
