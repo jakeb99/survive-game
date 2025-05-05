@@ -4,8 +4,8 @@ using System.Linq;
 
 public class DataPersistenceManager : MonoBehaviour
 {
-    [Header("File Storage Settings")]
-    [SerializeField] private string fileName;
+
+    private string fileName = "undead-defense-savefile";
 
 
     private static DataPersistenceManager instance;
@@ -16,6 +16,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     private void Awake()
     {
+        
         if (instance != null && instance != this)
         {
             Destroy(gameObject);
@@ -28,9 +29,14 @@ public class DataPersistenceManager : MonoBehaviour
 
     private void Start()
     {
+        DontDestroyOnLoad(gameObject);
+    }
+
+    public void StartGame()
+    {
         dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
         dataPersistenceObjects = FindAllDataPersistenceObjects();
-        LoadGame(); // TODO: move this to main menu
+        LoadGame();
     }
 
     private void NewGame()
@@ -56,8 +62,24 @@ public class DataPersistenceManager : MonoBehaviour
         }
     }
 
+    public void LoadDataOnGamestart()
+    {
+        Debug.Log("Loading game data on start");
+
+        dataPersistenceObjects = FindAllDataPersistenceObjects();
+
+        // push the loaded data to all the scripts that impleent IDataPersistence
+        foreach (IDataPersistence dataPersistentObject in dataPersistenceObjects)
+        {
+            dataPersistentObject.LoadGameData(gameData);
+        }
+    }
+
     private void SaveGame()
     {
+        dataPersistenceObjects.Clear();
+        dataPersistenceObjects = FindAllDataPersistenceObjects();
+
         // pass game data to the scrips that use it so they can update it
         foreach (IDataPersistence dataPersistentObject in dataPersistenceObjects)
         {

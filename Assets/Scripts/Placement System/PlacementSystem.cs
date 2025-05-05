@@ -162,6 +162,7 @@ public class PlacementSystem : MonoBehaviour, IDataPersistence
 
     private void PlaceSavedObject(PlaceableObjectSerializableData data)
     {
+        Debug.Log("Placing saved object");
         GameObject prefab = null;
         switch (data.type)
         {

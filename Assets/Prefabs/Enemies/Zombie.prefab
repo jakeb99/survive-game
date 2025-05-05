@@ -286,7 +286,7 @@ MonoBehaviour:
   player: {fileID: 0}
   agent: {fileID: 0}
   <animator>k__BackingField: {fileID: 6258861232397520115}
-  <baseMoveSpeed>k__BackingField: 35.4
+  <baseMoveSpeed>k__BackingField: 0.447
   <baseAnimSpeed>k__BackingField: 1
   enemyEye: {fileID: 3290041807165539931}
   breakableCheckDistance: 0.61

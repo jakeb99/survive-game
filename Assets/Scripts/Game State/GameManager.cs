@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public GameObject Player {  get; private set; }
     public string PlayerTag;
     public Action<int> OnUpdateScrapTotal;
+    private DataPersistenceManager saveSystem;
 
     private void Awake()
     {
@@ -30,12 +31,13 @@ public class GameManager : MonoBehaviour, IDataPersistence
 
         Player = GameObject.FindGameObjectWithTag(PlayerTag);
         CurrentState = new GameSetupState(this);
-        
+        saveSystem = FindAnyObjectByType<DataPersistenceManager>();
     }
 
     private void Start()
     {
         CurrentState.OnStateEnter();
+        saveSystem.LoadDataOnGamestart();
     }
 
     public void ChangeState(GameState state)
