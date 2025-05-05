@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class EnemyMoveToState : EnemyState
 {
-    
     public EnemyMoveToState(EnemyController enemy) : base(enemy)
     {
 
@@ -10,6 +9,7 @@ public class EnemyMoveToState : EnemyState
 
     public override void OnStateEnter()
     {
+
         Debug.Log("Entered EnemyMoveToTargetState.");
         enemy.currentTarget = enemy.player;
         Debug.Log($"moving to {enemy.currentTarget.name}");
@@ -19,6 +19,7 @@ public class EnemyMoveToState : EnemyState
 
     public override void OnStateExit()
     {
+        //ResetAnimationSpeed();
         Debug.Log("Exited EnemyMoveToTargetState");
     }
 
@@ -43,5 +44,21 @@ public class EnemyMoveToState : EnemyState
             enemy.currentTarget = (hit.collider.name == "Player") ? hit.collider.gameObject : hit.collider.transform.parent.gameObject;      // barricades collider is in child but player collider is at root
             enemy.ChangeState(new EnemyAttackState(enemy));
         }
+        //SetAnimationSpeed();
     }
+
+    //private void SetAnimationSpeed()
+    //{
+    //    float currentSpeed = enemy.agent.velocity.magnitude;
+
+    //    float speedMult = currentSpeed / enemy.baseMoveSpeed;
+
+    //    enemy.animator.speed = speedMult * enemy.baseAnimSpeed;
+    //}
+
+    //private void ResetAnimationSpeed()
+    //{
+    //    enemy.animator.speed = 1f;
+    //}
 }
+

@@ -1,0 +1,11 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/MenuStyles.uss?fileID=7433441132597879392&amp;guid=46d011ce6949e4d49a2fcb4fffbafabe&amp;type=3#MenuStyles" />
+    <engine:VisualElement style="flex-grow: 1; width: 45%; background-color: rgba(0, 0, 0, 0.77); margin-left: 5%; height: 100%; align-items: center;">
+        <engine:VisualElement name="image" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Prefabs/UI/ChatGPT%20Image%20May%205,%202025,%2012_22_10%20PM.png?fileID=2800000&amp;guid=50d05d0c644ccd741a9fe655cb616088&amp;type=3#ChatGPT Image May 5, 2025, 12_22_10 PM&quot;); align-self: auto; background-size: 100% 100%; -unity-background-scale-mode: scale-to-fit; height: 0; width: 519px; background-position-y: top 0; background-position-x: center 0; position: relative;" />
+        <engine:VisualElement name="buttons" style="flex-grow: 1; justify-content: center; height: 290px; align-self: auto; align-items: stretch; width: 213px; padding-bottom: 30%;">
+            <engine:Button text="New Game" name="NewGameBtn" class="menu-button" />
+            <engine:Button text="Load" name="LoadGameBtn" class="menu-button" />
+            <engine:Button text="Exit" name="ExitBtn" class="menu-button" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

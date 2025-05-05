@@ -19,6 +19,7 @@ public class TurretController : MonoBehaviour
 
     [Header("Misc")]
     [SerializeField] GameObject previewPrefab;
+    [SerializeField] bool isMainMenuVarient = false;
 
 
     private AttackAbility attackAbility;
@@ -32,7 +33,10 @@ public class TurretController : MonoBehaviour
 
     private void Start()
     {
+        if (isMainMenuVarient) return;
+
         InvokeRepeating("UpdateCurrentTarget", 0, 0.5f);
+
         if (attackAbility != null)
         {
             attackAbility.OnAttack += ShootAudio;
@@ -53,6 +57,7 @@ public class TurretController : MonoBehaviour
         }
 
         FaceEnemy();
+        if (isMainMenuVarient) return;
 
         attackAbility.StartAttack(currentTarget);
     }
@@ -137,5 +142,13 @@ public class TurretController : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, turretRange);
         Gizmos.DrawSphere(weaponTip.position, 0.05f);
+    }
+
+    public void SetCurrentTarget(Vector3 target)
+    {
+        GameObject targetObj = new GameObject();
+        targetObj.transform.position = target;
+        currentTarget = targetObj;
+        Destroy(targetObj);
     }
 }

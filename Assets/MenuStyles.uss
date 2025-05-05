@@ -1,0 +1,25 @@
+.menu-button {
+    -unity-font-definition: url("project://database/Assets/Fonts/JH_FALLOUT.TTF?fileID=12800000&guid=46ae5ee412bc90947ac31ba53633a54a&type=3#JH_FALLOUT");
+    font-size: 19px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(205, 205, 205);
+    transition-duration: 0.2s;
+}
+
+.menu-button:hover {
+    color: rgb(248, 255, 0);
+    -unity-text-align: middle-center;
+    -unity-font-style: bold;
+    font-size: 24px;
+    -unity-font-definition: url("project://database/Assets/Fonts/JH_FALLOUT.TTF?fileID=12800000&guid=46ae5ee412bc90947ac31ba53633a54a&type=3#JH_FALLOUT");
+    -unity-text-outline-color: rgba(0, 0, 0, 0);
+    rotate: -10deg;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+}

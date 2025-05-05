@@ -14,6 +14,10 @@ public class EnemyController : MonoBehaviour
 
     public NavMeshAgent agent;
 
+    [field: SerializeField] public Animator animator {  get; private set; }
+    [field: SerializeField] public float baseMoveSpeed {  get; private set; }
+    [field: SerializeField] public float baseAnimSpeed { get; private set; }
+
     public Transform enemyEye;
     public float breakableCheckDistance;        // distance to check for breakable object in path
     public float breakableCheckRadius = 0.4f;
@@ -40,7 +44,9 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
+        SetAnimSpeed();
         currentState.OnStateUpdate();
+        SetAnimSpeed();
     }
 
     public void ChangeState(EnemyState state)
@@ -70,5 +76,23 @@ public class EnemyController : MonoBehaviour
 
         if (currentTarget != null)
             Gizmos.DrawLine(gameObject.transform.position, currentTarget.transform.position);
+    }
+
+    private void SetAnimSpeed()
+    {
+        float currentSpeed = agent.velocity.magnitude;
+        //Debug.Log(animator.GetCurrentAnimatorStateInfo(0).fullPathHash);
+        if (currentState.GetType() == typeof(EnemyMoveToState))
+        {
+            Debug.Log("SetSpeeedofAnim!");
+            float speedMult = currentSpeed / baseMoveSpeed;
+
+            animator.speed = speedMult * baseAnimSpeed;
+        }
+        else
+        {
+            Debug.Log("resetSpeed");
+            animator.speed = 1f;
+        }
     }
 }

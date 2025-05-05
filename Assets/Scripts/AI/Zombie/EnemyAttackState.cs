@@ -17,6 +17,7 @@ public class EnemyAttackState : EnemyState
         if (attackAbility)
         {
             attackAbility.StartAttack(enemy.currentTarget);
+            enemy.animator.SetBool("attacking", true);
             enemy.rb.isKinematic = true;
         } else
         {
@@ -31,6 +32,7 @@ public class EnemyAttackState : EnemyState
         if (attackAbility)
         {
             attackAbility.StopAttack();
+            enemy.animator.SetBool("attacking", false);
             enemy.rb.isKinematic = false;
         }        
     }

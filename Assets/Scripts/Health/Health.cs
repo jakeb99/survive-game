@@ -10,6 +10,11 @@ public class Health : MonoBehaviour
     public Action OnDecrementHealth;
     public Action OnIncrementHealth;
 
+    private void Awake()
+    {
+        currentHealth = maxHealth;
+    }
+
     public void DecrementHealth(float amount)
     {
         currentHealth -= amount;
