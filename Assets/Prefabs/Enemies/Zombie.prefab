@@ -281,6 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2027593c38549334e9a5e4522042d958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyValue: 1
   initialAgentSpeed: 3.5
   currentTarget: {fileID: 0}
   player: {fileID: 0}
@@ -288,6 +289,7 @@ MonoBehaviour:
   <animator>k__BackingField: {fileID: 6258861232397520115}
   <baseMoveSpeed>k__BackingField: 0.447
   <baseAnimSpeed>k__BackingField: 1
+  deathSFX: {fileID: 8300000, guid: 2d50d125bd2553949afc3f88ba1e5572, type: 3}
   enemyEye: {fileID: 3290041807165539931}
   breakableCheckDistance: 0.61
   breakableCheckRadius: 0.34

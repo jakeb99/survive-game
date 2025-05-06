@@ -4,23 +4,30 @@ using Unity.AI.Navigation;
 using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
+using static Unity.VisualScripting.Member;
 
 public class DestructableObject : MonoBehaviour, IDestroyable, IInteractable
 {
     [SerializeField] protected Health healthObj;
     [SerializeField] private GameObject previewPrefab;
+    [SerializeField] private AudioClip damageSFX;
+    [SerializeField] private AudioClip destroyedSFX;
     private NavMeshModifierVolume modifierVolume;
+
+    private AudioSource audioSource;
 
     public Action OnDestructableDestroyed;
 
     private void Awake()
     {
         modifierVolume = GetComponentInChildren<NavMeshModifierVolume>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
     {
         healthObj.OnDeath += DestroyDestructable;
+        healthObj.OnDecrementHealth += PlayDamageSound;
     }
 
     public void Update()
@@ -30,9 +37,10 @@ public class DestructableObject : MonoBehaviour, IDestroyable, IInteractable
 
     public virtual void DestroyDestructable()
     {
+        PlayDeathSound();
+
         // set game object as inactive so we can rebake navmesh, other wise destroy does not complete untill end of update
         gameObject.SetActive(false);
-
         OnDestructableDestroyed?.Invoke();
 
         // recalculate navmesh now that this obsticle is gone
@@ -41,7 +49,24 @@ public class DestructableObject : MonoBehaviour, IDestroyable, IInteractable
         GameManager.Instance.PlacementSystem.RemovePlacedObject(gameObject);
 
         Destroy(gameObject);
-        healthObj.OnDeath -= DestroyDestructable;
+    }
+
+    private void PlayDamageSound()
+    {
+        audioSource.spatialBlend = 1f;
+        audioSource.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+        audioSource.PlayOneShot(damageSFX);
+    }
+
+    private void PlayDeathSound()
+    {
+        GameObject tempAudio = new GameObject("tempAudio");
+        tempAudio.transform.position = gameObject.transform.position;
+        AudioSource tempAudioSource = tempAudio.AddComponent<AudioSource>();
+        tempAudioSource.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+        tempAudioSource.spatialBlend = 1f;
+        tempAudioSource.PlayOneShot(destroyedSFX);
+        Destroy(tempAudio, destroyedSFX.length);
     }
 
     InteractionOption[] IInteractable.GetOptions() => new[]

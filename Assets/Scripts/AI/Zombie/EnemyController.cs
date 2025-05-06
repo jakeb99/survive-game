@@ -5,6 +5,7 @@ public class EnemyController : MonoBehaviour
 {
     private EnemyState currentState;
     private Health healthObj;
+    [SerializeField] private int enemyValue;
     public Rigidbody rb {  get; private set; }
     public float initialAgentSpeed;
 
@@ -17,6 +18,7 @@ public class EnemyController : MonoBehaviour
     [field: SerializeField] public Animator animator {  get; private set; }
     [field: SerializeField] public float baseMoveSpeed {  get; private set; }
     [field: SerializeField] public float baseAnimSpeed { get; private set; }
+    [SerializeField] AudioClip deathSFX;
 
     public Transform enemyEye;
     public float breakableCheckDistance;        // distance to check for breakable object in path
@@ -59,10 +61,12 @@ public class EnemyController : MonoBehaviour
     private void EnemyKilled()
     {
         Debug.Log($"{gameObject.name} was killed!");
+        PlayDeathSound();
         gameObject.SetActive(false);
         GameManager.Instance.WaveManager.spawnedEnemies.Remove(gameObject);
         GameManager.Instance.PlayerStats.TotalKills++;
         GameManager.Instance.UIManager.UpdateTotalKillsText();
+        GameManager.Instance.IncreaseScrap(enemyValue);
         Destroy(gameObject);
         return;
     }
@@ -84,15 +88,24 @@ public class EnemyController : MonoBehaviour
         //Debug.Log(animator.GetCurrentAnimatorStateInfo(0).fullPathHash);
         if (currentState.GetType() == typeof(EnemyMoveToState))
         {
-            Debug.Log("SetSpeeedofAnim!");
             float speedMult = currentSpeed / baseMoveSpeed;
 
             animator.speed = speedMult * baseAnimSpeed;
         }
         else
         {
-            Debug.Log("resetSpeed");
             animator.speed = 1f;
         }
+    }
+
+    private void PlayDeathSound()
+    {
+        GameObject tempAudio = new GameObject("tempAudio");
+        tempAudio.transform.position = gameObject.transform.position;
+        AudioSource tempAudioSource = tempAudio.AddComponent<AudioSource>();
+        tempAudioSource.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+        tempAudioSource.spatialBlend = 1f;
+        tempAudioSource.PlayOneShot(deathSFX);
+        Destroy(tempAudio, deathSFX.length);
     }
 }

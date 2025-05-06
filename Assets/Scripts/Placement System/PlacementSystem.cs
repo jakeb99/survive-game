@@ -23,9 +23,17 @@ public class PlacementSystem : MonoBehaviour, IDataPersistence
     [SerializeField] private GameObject turretPrefab;
     [SerializeField] private GameObject barbWirePrefab;
 
+    [SerializeField] private AudioClip placementSound;
+
     public bool inPlacementMode { get; private set; } = false;
     private GameObject previewObject = null;
     private bool validPlacementPos = true;
+    private AudioSource audioSource = null;
+
+    private void Awake()
+    {
+       audioSource = GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
@@ -63,12 +71,18 @@ public class PlacementSystem : MonoBehaviour, IDataPersistence
     private void PlaceObject()
     {
         if (!inPlacementMode || !validPlacementPos) return;
-
+        PlayPlaceSound();
         GameObject placedObject = Instantiate(placeableObjectPrefab, currentPlacementPostition, placeableObjectPrefab.transform.rotation);
 
         placedObjects.Add(placedObject);
 
         ExitPlacementMode();
+    }
+
+    private void PlayPlaceSound()
+    {
+        audioSource.pitch = Random.Range(0.95f, 1.05f);
+        audioSource.PlayOneShot(placementSound);
     }
 
     private bool CanPlaceObject()
