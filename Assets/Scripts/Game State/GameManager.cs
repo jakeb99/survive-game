@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour, IDataPersistence
 {
@@ -17,7 +18,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public GameObject Player {  get; private set; }
     public string PlayerTag;
     public Action<int> OnUpdateScrapTotal;
-    public DataPersistenceManager saveSystem {  get; private set; }
+    private DataPersistenceManager saveSystem;
 
     private void Awake()
     {
@@ -79,4 +80,20 @@ public class GameManager : MonoBehaviour, IDataPersistence
         data.PlayerStats = this.PlayerStats;
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void SaveGame()
+    {
+        saveSystem.SaveGame();
+    }
+
+    public void LoadLastSave()
+    {
+        saveSystem.LoadGame();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+    }
 }

@@ -23,6 +23,9 @@ public class GameSetupState : GameState
 
     public override void OnStateExit()
     {
+        // save the game
+        gameManager.SaveGame();
+
         // hide shop UI
         gameManager.UIManager.HideShopUI();
         gameManager.UIManager.HideStartWaveButton();

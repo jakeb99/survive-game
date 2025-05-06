@@ -393,7 +393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d252bad3b5748a4ea0698a6e94c36d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <maxHealth>k__BackingField: 50
+  <maxHealth>k__BackingField: 80
   <currentHealth>k__BackingField: 0
 --- !u!1001 &2345887899461232554
 PrefabInstance:

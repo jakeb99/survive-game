@@ -106,13 +106,13 @@ public class UIManager : MonoBehaviour
     public void OnGameOverExitButtonClicked()
     {
         // load to before faile dwave then quit since we save on quit
-        GameManager.Instance.saveSystem.RestartGame();
-        Application.Quit();
+        GameManager.Instance.LoadLastSave();
+        GameManager.Instance.QuitGame();
     }
 
-    public void OnGameOverResetButtonClicked()
+    public void OnGameOverRestartButtonClicked()
     {
         // load the last save
-        GameManager.Instance.saveSystem.RestartGame();
+        GameManager.Instance.LoadLastSave();
     }
 }

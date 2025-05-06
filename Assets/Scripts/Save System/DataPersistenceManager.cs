@@ -44,7 +44,7 @@ public class DataPersistenceManager : MonoBehaviour
         gameData = new GameData();
     }
 
-    private void LoadGame()
+    public void LoadGame()
     {
         // load any saved data from a file using the data handler
         gameData = dataHandler.Load();
@@ -77,10 +77,10 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void RestartGame()
     {
-        NewGame();
+
     }
 
-    private void SaveGame()
+    public void SaveGame()
     {
         dataPersistenceObjects.Clear();
         dataPersistenceObjects = FindAllDataPersistenceObjects();
@@ -91,7 +91,7 @@ public class DataPersistenceManager : MonoBehaviour
             dataPersistentObject.SaveGameData(ref gameData);
         }
 
-        // TODO: save that data to a file using the date handler
+        // save that data to a file using the date handler
         dataHandler.Save(gameData);
     }
 

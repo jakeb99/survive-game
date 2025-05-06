@@ -1,10 +1,6 @@
 using System;
-using System.Collections;
 using Unity.AI.Navigation;
-using Unity.VisualScripting;
-using UnityEditor.Rendering;
 using UnityEngine;
-using static Unity.VisualScripting.Member;
 
 public class DestructableObject : MonoBehaviour, IDestroyable, IInteractable
 {
