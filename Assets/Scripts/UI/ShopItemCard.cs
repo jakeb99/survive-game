@@ -30,8 +30,9 @@ public class ShopItemCard : MonoBehaviour
 
     public void BuyItem()
     {
-        // check that the player has enough money
-        // if so take the cost amount away from the players money
+        // try to buy the item
+        if (!GameManager.Instance.DecreaseScrap(itemData.itemCost)) return;
+
 
         // enter plavement mode
         itemPlacementSystem.SetPlaceableObjectPrefab(itemPrefab);

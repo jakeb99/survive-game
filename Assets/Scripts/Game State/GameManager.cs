@@ -78,4 +78,5 @@ public class GameManager : MonoBehaviour, IDataPersistence
     {
         data.PlayerStats = this.PlayerStats;
     }
+
 }

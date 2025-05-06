@@ -319,7 +319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 10
-  attackCoolDown: 0.7
+  attackCoolDown: 0.5
   attackSound: {fileID: 8300000, guid: ae11abfb784721649990a5ed65d63662, type: 3}
 --- !u!114 &6525657500208816020
 MonoBehaviour:
