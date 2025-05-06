@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public GameObject Player {  get; private set; }
     public string PlayerTag;
     public Action<int> OnUpdateScrapTotal;
-    private DataPersistenceManager saveSystem;
+    public DataPersistenceManager saveSystem {  get; private set; }
 
     private void Awake()
     {

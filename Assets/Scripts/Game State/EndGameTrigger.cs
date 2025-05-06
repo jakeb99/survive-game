@@ -7,8 +7,7 @@ public class EndGameTrigger : MonoBehaviour
     {
         if (other.CompareTag(enemyTag))
         {
-            Debug.Log("Game Over!");
-            // go to game over state
+            GameManager.Instance.ChangeState(new GameEndState(GameManager.Instance));
         }
     }
 }

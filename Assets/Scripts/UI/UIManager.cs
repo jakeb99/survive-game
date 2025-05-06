@@ -7,11 +7,17 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject shopUI;
     [SerializeField] private GameObject startWaveButton;
     [SerializeField] private GameObject playerStatsUI;
+    [SerializeField] private GameObject gameOverScreen;
 
     [SerializeField] private TextMeshProUGUI currentWaveNumText;
     [SerializeField] private TextMeshProUGUI currentTotalScrapText;
     [SerializeField] private TextMeshProUGUI totalKillsText;
     [SerializeField] private TextMeshProUGUI remainingEnemiesText;
+
+    [SerializeField] private TextMeshProUGUI gameOverScreenKillsText;
+    [SerializeField] private TextMeshProUGUI gameOverScreenWaveText;
+    [SerializeField] private TextMeshProUGUI gameOverScreenBulletsShotText;
+
 
     private void Awake()
     {
@@ -29,6 +35,15 @@ public class UIManager : MonoBehaviour
         UpdateRemainingEnemiesText(0);
         UpdateTotalScrapText(GameManager.Instance.PlayerStats.TotalScrap);
         UpdateTotalKillsText();
+    }
+
+    public void ShowGameOverScreen()
+    {
+        gameOverScreen?.SetActive(true);
+    }    
+    public void HideGameOverScreen()
+    {
+        gameOverScreen?.SetActive(false);
     }
 
     public void ShowShopUI()
@@ -78,5 +93,26 @@ public class UIManager : MonoBehaviour
     public void UpdateRemainingEnemiesText(int numEnemies)
     {
         remainingEnemiesText.text = $"Remaining: {numEnemies}";
+    }
+
+    public void UpdateGameOverStats()
+    {
+        PlayerStats stats = GameManager.Instance.PlayerStats;
+        gameOverScreenBulletsShotText.text = $"Bullets Shot: {stats.TotalBulletsShot.ToString()}";
+        gameOverScreenKillsText.text = $"Zombies Killed: {stats.TotalKills.ToString()}";
+        gameOverScreenWaveText.text = $"Waves Cleared: {(GameManager.Instance.WaveManager.CurrentWave - 1).ToString()}";
+    }
+
+    public void OnGameOverExitButtonClicked()
+    {
+        // load to before faile dwave then quit since we save on quit
+        GameManager.Instance.saveSystem.RestartGame();
+        Application.Quit();
+    }
+
+    public void OnGameOverResetButtonClicked()
+    {
+        // load the last save
+        GameManager.Instance.saveSystem.RestartGame();
     }
 }

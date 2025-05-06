@@ -75,6 +75,11 @@ public class DataPersistenceManager : MonoBehaviour
         }
     }
 
+    public void RestartGame()
+    {
+        NewGame();
+    }
+
     private void SaveGame()
     {
         dataPersistenceObjects.Clear();
