@@ -1,6 +1,7 @@
 
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject startWaveButton;
     [SerializeField] private GameObject playerStatsUI;
     [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] private GameObject helpScreen;
 
     [SerializeField] private TextMeshProUGUI currentWaveNumText;
     [SerializeField] private TextMeshProUGUI currentTotalScrapText;
@@ -17,6 +19,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI gameOverScreenKillsText;
     [SerializeField] private TextMeshProUGUI gameOverScreenWaveText;
     [SerializeField] private TextMeshProUGUI gameOverScreenBulletsShotText;
+
 
 
     private void Awake()
@@ -35,6 +38,14 @@ public class UIManager : MonoBehaviour
         UpdateRemainingEnemiesText(0);
         UpdateTotalScrapText(GameManager.Instance.PlayerStats.TotalScrap);
         UpdateTotalKillsText();
+    }
+
+    public void ToggleHelpScreen()
+    {
+        if (helpScreen.activeInHierarchy)
+            helpScreen.SetActive(false);
+        else 
+            helpScreen.SetActive(true);
     }
 
     public void ShowGameOverScreen()

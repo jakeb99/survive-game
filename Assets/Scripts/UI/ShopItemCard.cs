@@ -7,6 +7,7 @@ public class ShopItemCard : MonoBehaviour
     [SerializeField] private TextMeshProUGUI itemNameText;
     [SerializeField] private TextMeshProUGUI itemHealthText;
     [SerializeField] private TextMeshProUGUI itemCostText;
+    [SerializeField] private TextMeshProUGUI itemDescriptionText;
     [SerializeField] private Image itemImageRect;
     [SerializeField] private GameObject itemPrefab;
     [SerializeField] private GameObject itemPreviewPrefab;
@@ -26,6 +27,7 @@ public class ShopItemCard : MonoBehaviour
         itemNameText.text = itemData.itemName;
         itemCostText.text = $"Cost: {itemData.itemCost.ToString()}";
         itemHealthText.text = $"Durability: {itemPrefab.GetComponent<Health>().maxHealth.ToString()}";
+        itemDescriptionText.text = $"{itemData.itemDescription}";
     }
 
     public void BuyItem()
