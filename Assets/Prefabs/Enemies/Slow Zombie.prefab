@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6200543793328816471, guid: b83d8c31d11cf5e4ba8d893a85dfc14b, type: 3}
       propertyPath: enemyValue
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6200543793328816471, guid: b83d8c31d11cf5e4ba8d893a85dfc14b, type: 3}
       propertyPath: initialAgentSpeed
