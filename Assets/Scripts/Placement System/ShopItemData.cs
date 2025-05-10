@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopItemData : MonoBehaviour
 {
@@ -6,5 +7,6 @@ public class ShopItemData : MonoBehaviour
     public int itemCost;
     public string itemDescription;
     public PlaceableType type;
+    public Sprite itemImage;
 }
 

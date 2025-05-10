@@ -92,7 +92,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1504112223404141667, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
       propertyPath: itemCost
-      value: 60
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: -1504112223404141667, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
       propertyPath: itemName
@@ -102,6 +102,10 @@ PrefabInstance:
       propertyPath: itemType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: -1504112223404141667, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
+      propertyPath: itemImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 129d90bf0b88006449eaa796db19c93e, type: 3}
     - target: {fileID: -1504112223404141667, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
       propertyPath: itemHealth
       value: 20
@@ -124,7 +128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4781729954992824076, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
       propertyPath: <maxHealth>k__BackingField
-      value: 20
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7429624099821248226, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
       propertyPath: m_Area

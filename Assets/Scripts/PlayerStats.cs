@@ -13,7 +13,7 @@ public class PlayerStats
     // default values
     public PlayerStats()
     {
-        TotalScrap = 900;
+        TotalScrap = 400;
         HighestWave = 0;
         TotalBulletsShot = 0;
         TotalDamageDelt = 0;

@@ -255,6 +255,7 @@ MonoBehaviour:
   itemCost: 45
   itemDescription: Hands free killing machine.
   type: 3
+  itemImage: {fileID: 21300000, guid: ddc00b91334946e4ead7dc910083c00e, type: 3}
 --- !u!114 &-8103927361743666348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,7 +319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb9c9f3ac4cafe54b9a42f9f5db2c094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 8
+  damageAmount: 10
   attackCoolDown: 0.6
   attackSound: {fileID: 8300000, guid: ae11abfb784721649990a5ed65d63662, type: 3}
 --- !u!114 &6525657500208816020

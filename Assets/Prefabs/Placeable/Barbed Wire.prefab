@@ -291,6 +291,7 @@ MonoBehaviour:
   itemCost: 15
   itemDescription: Good for slowing down zombies but breaks over time.
   type: 4
+  itemImage: {fileID: 21300000, guid: 19ee7f513f40a4b4ebbe5455ea365ced, type: 3}
 --- !u!114 &8515622909786285394
 MonoBehaviour:
   m_ObjectHideFlags: 0

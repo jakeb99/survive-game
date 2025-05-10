@@ -88,7 +88,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1504112223404141667, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
       propertyPath: itemCost
-      value: 90
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: -1504112223404141667, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
       propertyPath: itemName
@@ -98,6 +98,10 @@ PrefabInstance:
       propertyPath: itemType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: -1504112223404141667, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
+      propertyPath: itemImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 7f86f91d858e16a48aec2cd2beccc7ea, type: 3}
     - target: {fileID: -1504112223404141667, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
       propertyPath: itemHealth
       value: 30
@@ -116,7 +120,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4781729954992824076, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
       propertyPath: <maxHealth>k__BackingField
-      value: 30
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 5543377087673411652, guid: 1a9105452e45bc049977873a5d9d4027, type: 3}
       propertyPath: m_ApplyToChildren
