@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlacementSystem : MonoBehaviour, IDataPersistence
+public class PlacementSystem : MonoBehaviour, IPersistentData
 {
     [SerializeField] private Camera sceneCamera;
     [SerializeField] private Vector3 currentPlacementPostition;
@@ -165,12 +165,26 @@ public class PlacementSystem : MonoBehaviour, IDataPersistence
         placedObjects.Remove(obj);
     }
 
-    void IDataPersistence.LoadGameData(GameData data)
+    void IPersistentData.LoadGameData(GameData data)
     {
         foreach (PlaceableObjectSerializableData serializableData in data.PlacedObjects)
         {
             PlaceSavedObject(serializableData);
         }
+    }
+    void IPersistentData.SaveGameData(ref GameData data)
+    {
+        List<PlaceableObjectSerializableData> serializableDatas =
+            new List<PlaceableObjectSerializableData>();
+
+        foreach (GameObject obj in this.placedObjects)
+        {
+            PlaceableObjectSerializableData newData = new PlaceableObjectSerializableData();
+
+            serializableDatas.Add(newData.SetData(obj));
+        }
+
+        data.PlacedObjects = serializableDatas;
     }
 
     private void PlaceSavedObject(PlaceableObjectSerializableData data)
@@ -199,20 +213,5 @@ public class PlacementSystem : MonoBehaviour, IDataPersistence
         GameObject placedObject = Instantiate(prefab, position, prefab.transform.rotation);
         placedObjects.Add(placedObject);
         placedObject.GetComponent<Health>().SetCurrentHealth(data.CurrentHealth);
-    }
-
-    void IDataPersistence.SaveGameData(ref GameData data)
-    {
-        List<PlaceableObjectSerializableData> serializableDatas = 
-            new List<PlaceableObjectSerializableData>();
-
-        foreach (GameObject obj in this.placedObjects)
-        {
-            PlaceableObjectSerializableData newData = new PlaceableObjectSerializableData();
-
-            serializableDatas.Add(newData.SetData(obj));
-        }
-
-        data.PlacedObjects = serializableDatas;
     }
 }

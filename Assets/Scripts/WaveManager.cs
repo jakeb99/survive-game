@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class WaveManager : MonoBehaviour, IDataPersistence
+public class WaveManager : MonoBehaviour, IPersistentData
 {
     public int CurrentWave { get; private set; }
 
@@ -108,18 +108,17 @@ public class WaveManager : MonoBehaviour, IDataPersistence
             {
                 break;
             }
-            Debug.Log("loooooping!");
         }
         enemiesToSpawn.Clear();
         enemiesToSpawn = enemyList;
     }
 
-    void IDataPersistence.LoadGameData(GameData data)
+    void IPersistentData.LoadGameData(GameData data)
     {
         this.CurrentWave = data.CurrentWave;
     }
 
-    void IDataPersistence.SaveGameData(ref GameData data)
+    void IPersistentData.SaveGameData(ref GameData data)
     {
         data.CurrentWave = this.CurrentWave;
     }

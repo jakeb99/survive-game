@@ -10,7 +10,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     private static DataPersistenceManager instance;
     private GameData gameData;
-    private List<IDataPersistence> dataPersistenceObjects;
+    private List<IPersistentData> dataPersistenceObjects;
     private FileDataHandler dataHandler;
     public static DataPersistenceManager Instance { get { return instance; } }
 
@@ -56,7 +56,7 @@ public class DataPersistenceManager : MonoBehaviour
         }
 
         // push the loaded data to all the scripts that impleent IDataPersistence
-        foreach (IDataPersistence dataPersistentObject in dataPersistenceObjects)
+        foreach (IPersistentData dataPersistentObject in dataPersistenceObjects)
         {
             dataPersistentObject.LoadGameData(gameData);
         }
@@ -69,7 +69,7 @@ public class DataPersistenceManager : MonoBehaviour
         dataPersistenceObjects = FindAllDataPersistenceObjects();
 
         // push the loaded data to all the scripts that impleent IDataPersistence
-        foreach (IDataPersistence dataPersistentObject in dataPersistenceObjects)
+        foreach (IPersistentData dataPersistentObject in dataPersistenceObjects)
         {
             dataPersistentObject.LoadGameData(gameData);
         }
@@ -85,22 +85,22 @@ public class DataPersistenceManager : MonoBehaviour
         dataPersistenceObjects.Clear();
         dataPersistenceObjects = FindAllDataPersistenceObjects();
 
-        // pass game data to the scrips that use it so they can update it
-        foreach (IDataPersistence dataPersistentObject in dataPersistenceObjects)
+        // extract the game data from objects that implement IPersistentData
+        foreach (IPersistentData dataPersistentObject in dataPersistenceObjects)
         {
             dataPersistentObject.SaveGameData(ref gameData);
         }
 
-        // save that data to a file using the date handler
+        // save that data to a file using the specified handler
         dataHandler.Save(gameData);
     }
 
-    private List<IDataPersistence> FindAllDataPersistenceObjects()
+    private List<IPersistentData> FindAllDataPersistenceObjects()
     {
-        IEnumerable<IDataPersistence> dataPersistenceObjects = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None)
-            .OfType<IDataPersistence>();
+        IEnumerable<IPersistentData> dataPersistenceObjects = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None)
+            .OfType<IPersistentData>();
 
-        return new List<IDataPersistence>(dataPersistenceObjects);
+        return new List<IPersistentData>(dataPersistenceObjects);
     }
 
     private void OnApplicationQuit()

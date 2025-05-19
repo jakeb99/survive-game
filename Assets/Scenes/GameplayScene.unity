@@ -5771,6 +5771,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7417374113783081703, guid: 9bcda032b3827994eb4bfc7a27198c5c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7417374113783081703, guid: 9bcda032b3827994eb4bfc7a27198c5c, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -7583,10 +7587,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1344621770}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: ToggleHelpScreen
-        m_Mode: 6
+      - m_Target: {fileID: 199816678}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: QuitGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8042,6 +8046,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7417374113783081703, guid: 9bcda032b3827994eb4bfc7a27198c5c, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7417374113783081703, guid: 9bcda032b3827994eb4bfc7a27198c5c, type: 3}
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7417374113783081703, guid: 9bcda032b3827994eb4bfc7a27198c5c, type: 3}
@@ -13411,6 +13419,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7417374113783081703, guid: 9bcda032b3827994eb4bfc7a27198c5c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7417374113783081703, guid: 9bcda032b3827994eb4bfc7a27198c5c, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -15132,6 +15144,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7417374113783081703, guid: 9bcda032b3827994eb4bfc7a27198c5c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7417374113783081703, guid: 9bcda032b3827994eb4bfc7a27198c5c, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -15747,6 +15763,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7417374113783081703, guid: 9bcda032b3827994eb4bfc7a27198c5c, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7417374113783081703, guid: 9bcda032b3827994eb4bfc7a27198c5c, type: 3}
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7417374113783081703, guid: 9bcda032b3827994eb4bfc7a27198c5c, type: 3}
@@ -17390,6 +17410,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7417374113783081703, guid: 9bcda032b3827994eb4bfc7a27198c5c, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7417374113783081703, guid: 9bcda032b3827994eb4bfc7a27198c5c, type: 3}
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7417374113783081703, guid: 9bcda032b3827994eb4bfc7a27198c5c, type: 3}

@@ -1,9 +1,8 @@
 using UnityEngine;
 
-public interface IDataPersistence
+public interface IPersistentData
 {
     void LoadGameData(GameData data);
 
-    // pass by ref so we can directly write to the gamedata obj
     void SaveGameData(ref GameData data);
 }

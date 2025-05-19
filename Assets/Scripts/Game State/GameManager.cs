@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour, IDataPersistence
+public class GameManager : MonoBehaviour, IPersistentData
 {
     private static GameManager instance;
     public static GameManager Instance {  get { return instance; } }
@@ -70,12 +70,12 @@ public class GameManager : MonoBehaviour, IDataPersistence
         OnUpdateScrapTotal?.Invoke(PlayerStats.TotalScrap);
     }
 
-    void IDataPersistence.LoadGameData(GameData data)
+    void IPersistentData.LoadGameData(GameData data)
     {
         this.PlayerStats = data.PlayerStats;
     }
 
-    void IDataPersistence.SaveGameData(ref GameData data)
+    void IPersistentData.SaveGameData(ref GameData data)
     {
         data.PlayerStats = this.PlayerStats;
     }
